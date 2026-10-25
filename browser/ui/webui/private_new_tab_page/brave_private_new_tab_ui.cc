@@ -22,9 +22,7 @@
 bool BravePrivateNewTabUIConfig::IsWebUIEnabled(
     content::BrowserContext* browser_context) {
   Profile* profile = Profile::FromBrowserContext(browser_context);
-  return profile->IsIncognitoProfile() || profile->IsTor() ||
-         profile->IsGuestSession() ||
-         profile->IsEnterpriseIsolatedModeProfile();
+  return profile->IsOffTheRecord() || profile->IsGuestSession();
 }
 
 BravePrivateNewTabUI::BravePrivateNewTabUI(content::WebUI* web_ui)
